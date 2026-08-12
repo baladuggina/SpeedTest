@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage / Main Speed Test Application -->
+  <url>
+    <loc>https://speed-test.site/</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/wifi-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/net-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-internet-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/broadband-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/online-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-my-net-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/fiber-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/ping-test-online</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/download-speed-checker</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/upload-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/connection-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-internet-connection</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/network-speed-monitor</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/fast-internet-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/speed-test-website</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/latency-test-online</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/router-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/free-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/network-performance-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/bandwidth-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-wifi-speed-online</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-diagnostic-tool</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/mobile-data-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/5g-speed-test-online</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/4g-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-my-download-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-my-upload-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/real-time-internet-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/web-based-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-broadband-performance</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-network-latency</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-jitter-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/connection-performance-checker</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/speed-test-tool-free</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-my-mbps</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/megabits-per-second-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-internet-speed-without-app</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/browser-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/html5-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/accurate-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/fast-speed-test-online</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-connection-speed-now</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-my-broadband-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/home-internet-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/office-internet-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-my-wifi-ping</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/high-speed-internet-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-network-speed-free</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-speed-meter</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/measure-internet-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-line-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-speed-check-online</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-internet-speed-in-browser</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/network-speed-analyzer</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-download-mbps</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-upload-mbps</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/speed-test-history</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-internet-performance</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/network-speed-tracker</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-speed-diagnosis</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-connection-latency</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-adsl-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-cable-internet-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/satellite-internet-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/public-wifi-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-network-reliability</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-speed-checker-tool</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/simple-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/quick-internet-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/instant-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/live-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-net-connection</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/wifi-speed-check-free</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-network-speed-online</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-speed-tester-website</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-data-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-connection-quality</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/broadband-performance-checker</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/speed-test-utility</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/measure-download-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/measure-upload-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/online-network-tester</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-network-speed-metrics</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-internet-speed-accuracy</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/net-performance-checker</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-web-connection-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-speed-gauge</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/browser-internet-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-network-speed-instantly</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-internet-speed-in-mbps</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/fast-broadband-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-wireless-speed</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-network-response-time</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/speed-test-log</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/internet-connection-analyzer</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/test-wifi-performance</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/check-connection-speed-free</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO landing URL -->
+  <url>
+    <loc>https://speed-test.site/ultimate-internet-speed-test</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

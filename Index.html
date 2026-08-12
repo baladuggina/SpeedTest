@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Net Speed Test — Internet Speed Test</title>
+<link rel="icon" type="image/png" href="logo.png">
+<style>
+  :root{
+    --navy-dark:#0b1730;
+    --navy:#0f2049;
+    --blue-600:#2f6fed;
+    --blue-500:#3b82f6;
+    --blue-400:#63a4ff;
+    --blue-100:#e8f0fe;
+    --ink:#1a2233;
+    --muted:#6b7688;
+    --border:#e6e9f0;
+    --bg:#f4f6fb;
+    --card:#ffffff;
+    --ok:#22c55e;
+    --warn:#f59e0b;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    font-size: 13.5px;
+  }
+  a{text-decoration:none;color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+  /* Header */
+  header.site{
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    position:sticky; top:0; z-index:50;
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:56px;
+  }
+  .brand{display:flex; align-items:center; gap:8px; font-weight:800; font-size:17px; letter-spacing:-0.02em;}
+  .brand .mark{width:26px;height:26px;flex:none;}
+  .brand .velocity{color:var(--ink);}
+  .brand .test{color:var(--blue-600);}
+  nav.links{display:flex; align-items:center; gap:24px;}
+  nav.links a{font-size:13.5px; font-weight:600; color:var(--muted); transition:color .15s; cursor:pointer;}
+  nav.links a.active{color:var(--blue-600);}
+  nav.links a:hover{color:var(--ink);}
+  .hamburger{display:none; flex-direction:column; gap:4px; background:none; border:none; cursor:pointer; padding:6px;}
+  .hamburger span{width:20px; height:2px; background:var(--ink); display:block; border-radius:2px;}
+  .mobile-menu{display:none; flex-direction:column; padding:8px 20px 14px; border-top:1px solid var(--border);}
+  .mobile-menu a{padding:8px 0; font-weight:600; color:var(--ink); border-bottom:1px solid var(--border); cursor:pointer;}
+  .mobile-menu a:last-child{border-bottom:none;}
+  .mobile-menu.open{display:flex;}
+
+  /* Hero */
+  main{padding:28px 0 44px;}
+  .hero-card{
+    background:var(--card);
+    border-radius:16px;
+    box-shadow:0 1px 3px rgba(20,30,60,.06), 0 16px 32px -16px rgba(20,30,60,.1);
+    padding:32px 32px 28px;
+    max-width:560px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .server-line{font-size:12px; color:var(--muted); margin-bottom:14px; display:flex; align-items:center; justify-content:center; gap:6px;}
+  .server-line .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);}
+
+  /* Gauge */
+  .gauge-wrap{position:relative; width:240px; height:240px; margin:0 auto 18px;}
+  .gauge-wrap svg{width:100%; height:100%; display:block; overflow:visible;}
+  .gauge-panel{
+    position:absolute; left:50%; top:63%; transform:translateX(-50%);
+    width:74%; min-height:27%;
+    background:linear-gradient(180deg,#0c1a3a,#050b1a);
+    border:1px solid rgba(79,163,255,0.45);
+    border-radius:12px 12px 16px 16px;
+    box-shadow:0 0 14px rgba(47,139,255,.35), inset 0 0 10px rgba(47,139,255,.12);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:8px 6px 10px;
+  }
+  .gauge-panel .gv{font-size:28px; font-weight:800; color:#fff; line-height:1; font-variant-numeric:tabular-nums;}
+  .gauge-panel .gu{font-size:11px; font-weight:700; color:#4fa3ff; letter-spacing:.05em; margin-top:2px;}
+  .gauge-panel .gp{font-size:10px; font-weight:600; color:#8ba0c8; margin-top:4px; letter-spacing:.03em;}
+  #needleGroup{
+    transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* Stats */
+  .stats{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
+    margin:20px 0 22px;
+  }
+  .stat-box{
+    border:1px solid var(--border); border-radius:12px; padding:12px 8px 10px;
+    background:#fbfcfe;
+  }
+  .stat-label{
+    display:flex; align-items:center; justify-content:center; gap:4px;
+    font-size:10.5px; font-weight:800; color:var(--muted); letter-spacing:.03em; text-transform:uppercase;
+  }
+  .stat-label svg{width:11px;height:11px;}
+  .stat-value{font-size:22px; font-weight:800; margin:4px 0 3px; font-variant-numeric:tabular-nums;}
+  .stat-sub{font-size:10px; color:var(--muted); line-height:1.4;}
+
+  .start-btn{
+    appearance:none; border:none; cursor:pointer;
+    background:linear-gradient(180deg, var(--blue-500), var(--blue-600));
+    color:#fff; font-size:14.5px; font-weight:800; letter-spacing:.03em;
+    padding:13px 16px; border-radius:12px; width:100%;
+    box-shadow:0 8px 20px -8px rgba(47,111,237,.6), inset 0 1px 0 rgba(255,255,255,.25);
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .start-btn:hover{transform:translateY(-1px); box-shadow:0 12px 24px -10px rgba(47,111,237,.65);}
+  .start-btn:active{transform:translateY(0);}
+  .start-btn:disabled{opacity:.7; cursor:default; transform:none;}
+
+  /* Page Views common styling */
+  .page-view { display: none; }
+  .page-card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow:0 1px 3px rgba(20,30,60,.06), 0 16px 32px -16px rgba(20,30,60,.1);
+    padding: 32px;
+    max-width: 640px;
+    margin: 40px auto;
+  }
+  .page-card h2 { margin-top: 0; font-size: 20px; margin-bottom: 20px; text-align: center; }
+
+  /* History Table styling */
+  .history-table-wrap {
+    background: #fbfcfe;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .history-header-row, .history-row {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    padding: 12px 16px;
+    align-items: center;
+    font-size: 12.5px;
+  }
+  .history-header-row {
+    background: #f1f4f9;
+    font-weight: 800;
+    color: var(--muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-bottom: 1px solid var(--border);
+  }
+  .history-row {
+    border-bottom: 1px solid var(--border);
+  }
+  .history-row:last-child {
+    border-bottom: none;
+  }
+  .history-row .h-time { color: var(--muted); font-size: 11.5px; }
+  .history-row .h-down { color: var(--blue-600); font-weight: 700; }
+  .history-row .h-up { color: #0ea36b; font-weight: 700; }
+  .history-row .h-ping { font-weight: 700; }
+  .empty-note{color:var(--muted); font-size:12px; padding:20px; text-align:center;}
+
+  /* Overlay Modal styling for About */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(11, 23, 48, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px -15px rgba(20,30,60,.25);
+    width: 100%;
+    max-width: 520px;
+    padding: 28px 32px 24px;
+    position: relative;
+    animation: modalPop .2s ease-out;
+  }
+  @keyframes modalPop {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .close-modal-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    transition: background .15s, color .15s;
+  }
+  .close-modal-btn:hover {
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .close-modal-btn svg { width: 16px; height: 16px; }
+
+  .about-content {
+    color: var(--ink);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .about-content p {
+    margin: 0 0 14px 0;
+  }
+  .about-content h4 {
+    font-size: 13px;
+    font-weight: 800;
+    margin: 16px 0 6px 0;
+    color: var(--blue-600);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .about-content ul {
+    margin: 0 0 16px 18px;
+    padding: 0;
+  }
+  .about-content li {
+    margin-bottom: 4px;
+  }
+  .modal-footer-info {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    font-size: 11.5px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .back-btn-wrap {
+    text-align: center;
+    margin-top: 24px;
+  }
+  .back-btn {
+    display: inline-block; padding: 10px 20px; background: var(--navy); color: #fff; border-radius: 8px; font-weight: 700; cursor: pointer; border: none;
+  }
+
+  footer{
+    margin-top:40px; padding:18px 0; border-top:1px solid var(--border);
+    text-align:center; font-size:11.5px; color:var(--muted);
+  }
+  footer a{color:var(--muted); border-bottom:1px dotted var(--border);}
+  footer .fsep{margin:0 6px;}
+
+  /* Mobile */
+  @media (max-width: 720px){
+    nav.links{display:none;}
+    .hamburger{display:flex;}
+    .hero-card, .page-card{padding:24px 16px 20px; border-radius:14px; margin:0 14px;}
+    .gauge-wrap{width:210px; height:210px;}
+    .gauge-panel .gv{font-size:24px;}
+    .gauge-panel .gu{font-size:10px;}
+    .gauge-panel .gp{font-size:9px;}
+    .stats{grid-template-columns:1fr 1fr; gap:8px;}
+    .stat-box:nth-child(3){grid-column:span 2;}
+    main{padding:20px 0 34px;}
+    .wrap{padding:0 14px;}
+    .modal-card { padding: 20px 18px; margin: 0 12px; max-width: none; }
+  }
+  @media (max-width: 380px){
+    .stats{grid-template-columns:1fr;}
+    .stat-box:nth-child(3){grid-column:span 1;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="14" stroke="#2f6fed" stroke-width="2.4"/>
+          <path d="M16 16 L22 9" stroke="#2f6fed" stroke-width="2.4" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="2.2" fill="#2f6fed"/>
+        </svg>
+        <span class="velocity">Net <span class="test">Speed Test</span></span>
+      </div>
+      <nav class="links">
+        <a href="#" id="homeNav" class="active">Home</a>
+        <a href="#" id="historyTabNav">History</a>
+        <a href="#" id="aboutTabNav">About</a>
+      </nav>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#" id="mobileHomeNav">Home</a>
+      <a href="#" id="mobileHistoryTabNav">History</a>
+      <a href="#" id="mobileAboutTabNav">About</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <!-- Home View -->
+    <div id="homeView">
+      <div class="hero-card">
+        <div class="server-line"><span class="dot"></span> Connected — Server: <span id="serverName">Detecting…</span></div>
+
+        <div class="gauge-wrap">
+          <svg viewBox="0 0 300 300">
+            <defs>
+              <radialGradient id="dialBg" cx="50%" cy="42%" r="68%">
+                <stop offset="0%" stop-color="#0e1c40"/>
+                <stop offset="65%" stop-color="#060d22"/>
+                <stop offset="100%" stop-color="#020509"/>
+              </radialGradient>
+              <linearGradient id="arcGrad" x1="30" y1="150" x2="270" y2="150" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#2f8bff"/>
+                <stop offset="45%" stop-color="#7c6cf5"/>
+                <stop offset="75%" stop-color="#c14fd6"/>
+                <stop offset="100%" stop-color="#f43f7c"/>
+              </linearGradient>
+              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="5" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="needleGlow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+              <filter id="tickGlow" x="-100%" y="-100%" width="300%" height="300%">
+                <feGaussianBlur stdDeviation="1.2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <circle cx="150" cy="140" r="130" fill="url(#dialBg)"/>
+            <circle cx="150" cy="140" r="130" fill="none" stroke="#13224a" stroke-width="2"/>
+
+            <!-- track behind the glowing arc -->
+            <path d="M 47.8 199 A 118 118 0 1 1 252.2 199" fill="none" stroke="#0b1530" stroke-width="16" stroke-linecap="round"/>
+            <!-- glowing gradient arc -->
+            <path d="M 47.8 199 A 118 118 0 1 1 252.2 199" fill="none" stroke="url(#arcGrad)" stroke-width="9" stroke-linecap="round" filter="url(#glow)"/>
+
+            <!-- tick marks + labels -->
+            <g id="ticks"></g>
+            <g id="tickLabels"></g>
+
+            <!-- needle -->
+            <g id="needleGroup" transform="rotate(-120 150 140)">
+              <polygon points="150,30 144,150 150,159 156,150" fill="#eaf3ff" stroke="#4fa3ff" stroke-width="0.6" filter="url(#needleGlow)"/>
+            </g>
+
+            <!-- hub -->
+            <circle cx="150" cy="140" r="17" fill="#050b1a" stroke="#2f8bff" stroke-width="3" filter="url(#glow)"/>
+            <circle cx="150" cy="140" r="8" fill="#0a1630" stroke="#4fa3ff" stroke-width="1.5"/>
+          </svg>
+
+          <div class="gauge-panel">
+            <div class="gv" id="gaugeValue">0.0</div>
+            <div class="gu">Mbps</div>
+            <div class="gp" id="gaugePhase">Ready</div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat-box">
+            <div class="stat-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#6b7688" stroke-width="2"><path d="M12 4v12m0 0l-5-5m5 5l5-5M5 20h14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Download Mbps
+            </div>
+            <div class="stat-value" id="downloadValue">0.0</div>
+            <div class="stat-sub" id="downloadSub">Ping: — / Jitter: —</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#6b7688" stroke-width="2"><path d="M12 20V8m0 0l-5 5m5-5l5 5M5 4h14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Upload Mbps
+            </div>
+            <div class="stat-value" id="uploadValue">0.0</div>
+            <div class="stat-sub" id="uploadSub">Ping: — / Jitter: —</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Latency ms</div>
+            <div class="stat-value" id="latencyValue">0</div>
+            <div class="stat-sub" id="latencySub"></div>
+          </div>
+        </div>
+
+        <button class="start-btn" id="startBtn">START SPEED TEST</button>
+      </div>
+    </div>
+
+    <!-- History Page View -->
+    <div id="historyPageView" class="page-view">
+      <div class="page-card">
+        <h2>Test History</h2>
+        <div class="history-table-wrap">
+          <div class="history-header-row">
+            <div>Timestamp</div>
+            <div>Download</div>
+            <div>Upload</div>
+            <div>Ping</div>
+          </div>
+          <div id="historyListContainer">
+            <div class="empty-note">No tests yet — run a speed test to see your history here.</div>
+          </div>
+        </div>
+        <div class="back-btn-wrap">
+          <button class="back-btn" onclick="showHome()">Back to Speed Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- About Modal Overlay -->
+<div class="modal-overlay" id="aboutModalOverlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3>About Net Speed Test</h3>
+      <button class="close-modal-btn" id="closeAboutModal" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="about-content">
+      <p><strong>Net Speed Test</strong> is a precision internet performance diagnostic and network monitoring tool designed to accurately evaluate your connection metrics in real-time.</p>
+      
+      <h4>Key Features:</h4>
+      <ul>
+        <li>Instant high-performance download and upload bandwidth speed testing.</li>
+        <li>Real-time latency and jitter monitoring metrics.</li>
+        <li>Complete network diagnostic view including location configurations.</li>
+        <li>Built-in local testing session history logs.</li>
+      </ul>
+    </div>
+    <div class="modal-footer-info">
+      <span>Version 2.4.0</span>
+      <span>Built with modern Web Standards</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    Net Speed Test © 2026 <span class="fsep">|</span> <a href="#" id="footerAboutLink">About</a> <span class="fsep">|</span> <a href="#">Privacy Policy</a> <span class="fsep">|</span> <a href="#">Terms of Service</a>
+  </div>
+</footer>
+
+<script>
+// ---------- Mobile menu ----------
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburgerBtn.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+
+// ---------- Routing views & Modal ----------
+const homeView = document.getElementById('homeView');
+const historyPageView = document.getElementById('historyPageView');
+
+const homeNav = document.getElementById('homeNav');
+const historyTabNav = document.getElementById('historyTabNav');
+const aboutTabNav = document.getElementById('aboutTabNav');
+const footerAboutLink = document.getElementById('footerAboutLink');
+
+const mobileHomeNav = document.getElementById('mobileHomeNav');
+const mobileHistoryTabNav = document.getElementById('mobileHistoryTabNav');
+const mobileAboutTabNav = document.getElementById('mobileAboutTabNav');
+
+const aboutModalOverlay = document.getElementById('aboutModalOverlay');
+const closeAboutModal = document.getElementById('closeAboutModal');
+
+function hideAllViews(){
+  homeView.style.display = 'none';
+  historyPageView.style.display = 'none';
+  homeNav.classList.remove('active');
+  historyTabNav.classList.remove('active');
+  aboutTabNav.classList.remove('active');
+  mobileMenu.classList.remove('open');
+}
+
+function showHome(){
+  hideAllViews();
+  homeView.style.display = 'block';
+  homeNav.classList.add('active');
+}
+
+function showHistoryPage(){
+  hideAllViews();
+  historyPageView.style.display = 'block';
+  historyTabNav.classList.add('active');
+  renderHistoryTable();
+}
+
+function openAboutModal(e){
+  e.preventDefault();
+  aboutModalOverlay.style.display = 'flex';
+  mobileMenu.classList.remove('open');
+}
+
+function closeAboutModalFn(){
+  aboutModalOverlay.style.display = 'none';
+}
+
+aboutModalOverlay.addEventListener('click', (e) => {
+  if(e.target === aboutModalOverlay) closeAboutModalFn();
+});
+closeAboutModal.addEventListener('click', closeAboutModalFn);
+
+homeNav.addEventListener('click', (e) => { e.preventDefault(); showHome(); });
+mobileHomeNav.addEventListener('click', (e) => { e.preventDefault(); showHome(); });
+
+historyTabNav.addEventListener('click', (e) => { e.preventDefault(); showHistoryPage(); });
+mobileHistoryTabNav.addEventListener('click', (e) => { e.preventDefault(); showHistoryPage(); });
+
+aboutTabNav.addEventListener('click', openAboutModal);
+mobileAboutTabNav.addEventListener('click', openAboutModal);
+footerAboutLink.addEventListener('click', openAboutModal);
+
+// ---------- Gauge ----------
+const scalePoints = [0, 10, 25, 50, 100, 250, 500];
+const GAUGE_MAX = scalePoints[scalePoints.length - 1];
+const startAngle = -120, endAngle = 120;
+const segCount = scalePoints.length - 1;
+const segSweep = (endAngle - startAngle) / segCount;
+const CX = 150, CY = 140;
+const needleGroup = document.getElementById('needleGroup');
+const gaugeValue = document.getElementById('gaugeValue');
+const gaugePhase = document.getElementById('gaugePhase');
+
+function valueToAngle(v){
+  const clamped = Math.max(0, Math.min(GAUGE_MAX, v));
+  let segIndex = segCount - 1;
+  for(let i=0;i<segCount;i++){
+    if(clamped <= scalePoints[i+1]){ segIndex = i; break; }
+  }
+  const segStart = scalePoints[segIndex];
+  const segEnd = scalePoints[segIndex+1];
+  const frac = segEnd > segStart ? (clamped - segStart)/(segEnd - segStart) : 0;
+  return startAngle + segIndex*segSweep + frac*segSweep;
+}
+
+function buildTicks(){
+  const ticksGroup = document.getElementById('ticks');
+  const labelsGroup = document.getElementById('tickLabels');
+  const rOuterMajor = 118, rInnerMajor = 101;
+  const rOuterMinor = 118, rInnerMinor = 109;
+  const rLabel = 84;
+  let ticksHTML = '';
+  let labelsHTML = '';
+  for(let i=0;i<=segCount;i++){
+    const angle = startAngle + i*segSweep;
+    const rad = angle*Math.PI/180;
+    const x1 = CX + rOuterMajor*Math.sin(rad);
+    const y1 = CY - rOuterMajor*Math.cos(rad);
+    const x2 = CX + rInnerMajor*Math.sin(rad);
+    const y2 = CY - rInnerMajor*Math.cos(rad);
+    ticksHTML += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#eaf3ff" stroke-width="3" stroke-linecap="round" filter="url(#tickGlow)"/>`;
+    const lx = CX + rLabel*Math.sin(rad);
+    const ly = CY - rLabel*Math.cos(rad);
+    labelsHTML += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="#eaf3ff" font-size="15" font-weight="700" font-family="inherit">${scalePoints[i]}</text>`;
+    if(i < segCount){
+      for(let m=1;m<=2;m++){
+        const mAngle = angle + (m/3)*segSweep;
+        const mrad = mAngle*Math.PI/180;
+        const mx1 = CX + rOuterMinor*Math.sin(mrad);
+        const my1 = CY - rOuterMinor*Math.cos(mrad);
+        const mx2 = CX + rInnerMinor*Math.sin(mrad);
+        const my2 = CY - rInnerMinor*Math.cos(mrad);
+        ticksHTML += `<line x1="${mx1.toFixed(1)}" y1="${my1.toFixed(1)}" x2="${mx2.toFixed(1)}" y2="${my2.toFixed(1)}" stroke="#3d5aa0" stroke-width="1.5" stroke-linecap="round" opacity="0.75"/>`;
+      }
+    }
+  }
+  ticksGroup.innerHTML = ticksHTML;
+  labelsGroup.innerHTML = labelsHTML;
+}
+buildTicks();
+
+function setNeedle(mbps){
+  const clamped = Math.max(0, Math.min(GAUGE_MAX, mbps));
+  const angle = valueToAngle(clamped);
+  needleGroup.setAttribute('transform', `rotate(${angle} ${CX} ${CY})`);
+  gaugeValue.textContent = clamped.toFixed(1);
+}
+
+// ---------- Helpers ----------
+function fmt1(n){ return (Math.round(n*10)/10).toFixed(1); }
+function fmtInt(n){ return Math.round(n); }
+
+async function measureLatency(rounds=6){
+  const times = [];
+  for(let i=0;i<rounds;i++){
+    const url = `https://speed.cloudflare.com/__down?bytes=0&_=${Date.now()}_${i}`;
+    const t0 = performance.now();
+    try{
+      await fetch(url, {cache:'no-store', mode:'cors'});
+      times.push(performance.now()-t0);
+    }catch(e){}
+  }
+  if(times.length === 0) return {ping: null, jitter: null};
+  const avg = times.reduce((a,b)=>a+b,0)/times.length;
+  let jitterSum = 0;
+  for(let i=1;i<times.length;i++) jitterSum += Math.abs(times[i]-times[i-1]);
+  const jitter = times.length>1 ? jitterSum/(times.length-1) : 0;
+  return {ping: avg, jitter: jitter};
+}
+
+async function measureDownload(durationMs=6000, onProgress){
+  const chunkBytes = 24 * 1024 * 1024;
+  let totalBytes = 0;
+  const start = performance.now();
+  
+  const workerCount = 2;
+  let activeWorkers = workerCount;
+
+  for(let w=0; w<workerCount; w++){
+    (async function(){
+      while(performance.now() - start < durationMs){
+        const url = `https://speed.cloudflare.com/__down?bytes=${chunkBytes}&_=${Date.now()}_${Math.random()}`;
+        try{
+          const res = await fetch(url, {cache:'no-store', mode:'cors'});
+          const reader = res.body.getReader();
+          while(true){
+            const {done, value} = await reader.read();
+            if(done) break;
+            totalBytes += value.length;
+            const elapsed = (performance.now()-start)/1000;
+            if(elapsed > 0){
+              const mbps = (totalBytes * 8 / 1e6) / elapsed;
+              if(onProgress) onProgress(mbps);
+            }
+            if(performance.now() - start >= durationMs) { try{ reader.cancel(); }catch(e){} break; }
+          }
+        }catch(e){
+          break;
+        }
+      }
+      activeWorkers--;
+    })();
+  }
+
+  while(activeWorkers > 0 && (performance.now() - start < durationMs)){
+    await new Promise(r => setTimeout(r, 100));
+  }
+
+  const elapsedSec = (performance.now()-start)/1000;
+  return elapsedSec > 0 ? (totalBytes*8/1e6)/elapsedSec : 0;
+}
+
+function xhrUploadChunk(blob, onBytes, timeoutMs=8000){
+  return new Promise((resolve)=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://speed.cloudflare.com/__up', true);
+    xhr.timeout = timeoutMs;
+    let lastLoaded = 0;
+    xhr.upload.onprogress = (e)=>{
+      if(!e.lengthComputable) return;
+      const delta = e.loaded - lastLoaded;
+      lastLoaded = e.loaded;
+      if(delta > 0) onBytes(delta);
+    };
+    xhr.onload = ()=>{
+      const remaining = blob.size - lastLoaded;
+      if(remaining > 0) onBytes(remaining);
+      resolve(true);
+    };
+    xhr.onerror = ()=> resolve(false);
+    xhr.ontimeout = ()=> resolve(false);
+    try{ xhr.send(blob); }catch(e){ resolve(false); }
+  });
+}
+
+async function fetchUploadChunk(blob){
+  try{
+    await fetch('https://speed.cloudflare.com/__up', {method:'POST', body:blob, mode:'cors', cache:'no-store'});
+    return true;
+  }catch(e){
+    return false;
+  }
+}
+
+async function measureUpload(durationMs=6000, onProgress){
+  const start = performance.now();
+  let totalBytes = 0;
+  const report = (bytes)=>{
+    totalBytes += bytes;
+    const elapsed = (performance.now()-start)/1000;
+    if(elapsed > 0 && onProgress) onProgress((totalBytes*8/1e6)/elapsed);
+  };
+
+  const probeOk = await xhrUploadChunk(new Blob([new Uint8Array(256*1024)]), report);
+
+  if(probeOk){
+    let size = 2 * 1024 * 1024;
+    while(performance.now() - start < durationMs){
+      const ok = await xhrUploadChunk(new Blob([new Uint8Array(size)]), report);
+      if(!ok) break;
+      size = Math.min(size * 2, 16 * 1024 * 1024);
+    }
+  } else {
+    let size = 2 * 1024 * 1024;
+    let any = false;
+    while(performance.now() - start < durationMs){
+      const blob = new Blob([new Uint8Array(size)]);
+      const ok = await fetchUploadChunk(blob);
+      if(!ok) break;
+      any = true;
+      report(blob.size);
+      size = Math.min(size * 2, 8 * 1024 * 1024);
+    }
+    if(!any) return {mbps: null, bytes: 0};
+  }
+
+  const elapsedSec = (performance.now()-start)/1000;
+  const mbps = totalBytes > 0 && elapsedSec > 0 ? (totalBytes*8/1e6)/elapsedSec : null;
+  return {mbps, bytes: totalBytes};
+}
+
+// ---------- Recent tests & History management ----------
+function loadRecent(){
+  try{ return JSON.parse(localStorage.getItem('vt_recent')||'[]'); }catch(e){ return []; }
+}
+function saveRecent(list){
+  localStorage.setItem('vt_recent', JSON.stringify(list.slice(0,10)));
+}
+function renderHistoryTable(){
+  const list = loadRecent();
+  const container = document.getElementById('historyListContainer');
+  if(list.length === 0){
+    container.innerHTML = '<div class="empty-note">No tests yet — run a speed test to see your history here.</div>';
+    return;
+  }
+  container.innerHTML = list.map(r => `
+    <div class="history-row">
+      <div class="h-time">${r.time}</div>
+      <div class="h-down">↓ ${r.down} Mbps</div>
+      <div class="h-up">↑ ${r.up} Mbps</div>
+      <div class="h-ping">${r.ping} ms</div>
+    </div>`).join('');
+}
+
+// ---------- Network identity & Details ----------
+async function loadNetworkInfo(){
+  const serverNameEl = document.getElementById('serverName');
+  let location = 'Unavailable';
+
+  try {
+    const res = await fetch('https://ipwho.is/', {cache:'no-store'});
+    const data = await res.json();
+    if(data && data.success !== false) {
+      const city = data.city || '';
+      const region = data.region || '';
+      const country = data.country || '';
+      location = [city, region, country].filter(Boolean).join(', ') || 'Unavailable';
+    }
+  } catch(e) {}
+
+  serverNameEl.textContent = location !== 'Unavailable' ? location : 'Unknown Network';
+}
+loadNetworkInfo();
+
+const startBtn = document.getElementById('startBtn');
+const downloadValue = document.getElementById('downloadValue');
+const uploadValue = document.getElementById('uploadValue');
+const latencyValue = document.getElementById('latencyValue');
+const downloadSub = document.getElementById('downloadSub');
+const uploadSub = document.getElementById('uploadSub');
+
+let running = false;
+
+async function runTest(){
+  if(running) return;
+  running = true;
+  startBtn.disabled = true;
+  startBtn.textContent = 'TESTING...';
+  downloadValue.textContent = '0.0';
+  uploadValue.textContent = '0.0';
+  latencyValue.textContent = '0';
+
+  setNeedle(0);
+  await new Promise(r => setTimeout(r, 60));
+  setNeedle(GAUGE_MAX);
+  await new Promise(r => setTimeout(r, 500));
+  setNeedle(0);
+  await new Promise(r => setTimeout(r, 500));
+
+  gaugePhase.textContent = 'Ping';
+  const {ping, jitter} = await measureLatency();
+  if(ping !== null){
+    latencyValue.textContent = fmtInt(ping);
+  } else {
+    latencyValue.textContent = '—';
+  }
+
+  gaugePhase.textContent = 'Download';
+  let finalDown = 0;
+  finalDown = await measureDownload(6000, (mbps)=>{
+    setNeedle(mbps);
+    downloadValue.textContent = fmt1(mbps);
+  });
+  setNeedle(finalDown);
+  downloadValue.textContent = fmt1(finalDown);
+  downloadSub.textContent = ping !== null ? `Ping: ${fmtInt(ping)}ms / Jitter: ${fmt1(jitter)}ms` : 'Ping: — / Jitter: —';
+
+  gaugePhase.textContent = 'Upload';
+  setNeedle(0);
+  const upResult = await measureUpload(6000, (mbps)=>{
+    setNeedle(mbps);
+    uploadValue.textContent = fmt1(mbps);
+  });
+  let finalUp = 0;
+  if(upResult.mbps !== null){
+    finalUp = upResult.mbps;
+    setNeedle(finalUp);
+    uploadValue.textContent = fmt1(finalUp);
+    uploadSub.textContent = ping !== null ? `Ping: ${fmtInt(ping)}ms / Jitter: ${fmt1(jitter)}ms` : 'Ping: — / Jitter: —';
+  } else {
+    setNeedle(0);
+    uploadValue.textContent = '—';
+    uploadSub.textContent = 'Blocked by network/firewall/CORS';
+  }
+
+  await new Promise(r => setTimeout(r, 900));
+  setNeedle(0);
+  gaugePhase.textContent = 'Done';
+
+  const list = loadRecent();
+  list.unshift({
+    time: new Date().toLocaleString([], {month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'}),
+    down: fmt1(finalDown),
+    up: upResult.mbps !== null ? fmt1(finalUp) : '—',
+    ping: ping !== null ? fmtInt(ping) : '—'
+  });
+  saveRecent(list);
+
+  startBtn.disabled = false;
+  startBtn.textContent = 'START SPEED TEST';
+  running = false;
+}
+
+startBtn.addEventListener('click', runTest);
+</script>
+</body>
+</html>
